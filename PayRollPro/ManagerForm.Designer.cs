@@ -45,8 +45,9 @@
             this.txtBoxNN = new System.Windows.Forms.TextBox();
             this.labelNewN = new System.Windows.Forms.Label();
             this.labelNewR = new System.Windows.Forms.Label();
-            this.txtBoxNR = new System.Windows.Forms.TextBox();
             this.btnDone = new System.Windows.Forms.Button();
+            this.cmbNR = new System.Windows.Forms.ComboBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownRate)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             this.listBoxEmployees.Location = new System.Drawing.Point(729, 46);
             this.listBoxEmployees.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxEmployees.Name = "listBoxEmployees";
-            this.listBoxEmployees.Size = new System.Drawing.Size(458, 265);
+            this.listBoxEmployees.Size = new System.Drawing.Size(458, 236);
             this.listBoxEmployees.TabIndex = 0;
             // 
             // textBoxName
@@ -73,7 +74,7 @@
             // btnAddEmp
             // 
             this.btnAddEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddEmp.Location = new System.Drawing.Point(209, 510);
+            this.btnAddEmp.Location = new System.Drawing.Point(208, 511);
             this.btnAddEmp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddEmp.Name = "btnAddEmp";
             this.btnAddEmp.Size = new System.Drawing.Size(184, 51);
@@ -140,10 +141,10 @@
             // btnCalculate
             // 
             this.btnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalculate.Location = new System.Drawing.Point(991, 352);
+            this.btnCalculate.Location = new System.Drawing.Point(992, 352);
             this.btnCalculate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(196, 44);
+            this.btnCalculate.Size = new System.Drawing.Size(196, 45);
             this.btnCalculate.TabIndex = 11;
             this.btnCalculate.Text = "Calculate Salary";
             this.btnCalculate.UseVisualStyleBackColor = true;
@@ -186,7 +187,7 @@
             this.buttonInfo.Location = new System.Drawing.Point(729, 352);
             this.buttonInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonInfo.Name = "buttonInfo";
-            this.buttonInfo.Size = new System.Drawing.Size(196, 44);
+            this.buttonInfo.Size = new System.Drawing.Size(196, 45);
             this.buttonInfo.TabIndex = 18;
             this.buttonInfo.Text = "Employee Info";
             this.buttonInfo.UseVisualStyleBackColor = true;
@@ -195,10 +196,10 @@
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Location = new System.Drawing.Point(851, 406);
+            this.buttonEdit.Location = new System.Drawing.Point(850, 406);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(230, 47);
+            this.buttonEdit.Size = new System.Drawing.Size(230, 48);
             this.buttonEdit.TabIndex = 19;
             this.buttonEdit.Text = "Edit Employee Info";
             this.buttonEdit.UseVisualStyleBackColor = true;
@@ -215,7 +216,7 @@
             // labelNewN
             // 
             this.labelNewN.AutoSize = true;
-            this.labelNewN.Location = new System.Drawing.Point(729, 481);
+            this.labelNewN.Location = new System.Drawing.Point(729, 482);
             this.labelNewN.Name = "labelNewN";
             this.labelNewN.Size = new System.Drawing.Size(86, 20);
             this.labelNewN.TabIndex = 21;
@@ -232,32 +233,48 @@
             this.labelNewR.Text = "New Role";
             this.labelNewR.Visible = false;
             // 
-            // txtBoxNR
-            // 
-            this.txtBoxNR.Location = new System.Drawing.Point(862, 525);
-            this.txtBoxNR.Name = "txtBoxNR";
-            this.txtBoxNR.Size = new System.Drawing.Size(176, 26);
-            this.txtBoxNR.TabIndex = 23;
-            this.txtBoxNR.Visible = false;
-            // 
             // btnDone
             // 
             this.btnDone.Location = new System.Drawing.Point(831, 574);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(85, 28);
+            this.btnDone.Size = new System.Drawing.Size(86, 37);
             this.btnDone.TabIndex = 24;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Visible = false;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
+            // cmbNR
+            // 
+            this.cmbNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNR.FormattingEnabled = true;
+            this.cmbNR.Location = new System.Drawing.Point(862, 518);
+            this.cmbNR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbNR.Name = "cmbNR";
+            this.cmbNR.Size = new System.Drawing.Size(176, 28);
+            this.cmbNR.TabIndex = 25;
+            this.cmbNR.Visible = false;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(850, 294);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(230, 48);
+            this.btnRemove.TabIndex = 26;
+            this.btnRemove.Text = "Remove Employee";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.cmbNR);
             this.Controls.Add(this.btnDone);
-            this.Controls.Add(this.txtBoxNR);
             this.Controls.Add(this.labelNewR);
             this.Controls.Add(this.labelNewN);
             this.Controls.Add(this.txtBoxNN);
@@ -303,7 +320,8 @@
         private System.Windows.Forms.TextBox txtBoxNN;
         private System.Windows.Forms.Label labelNewN;
         private System.Windows.Forms.Label labelNewR;
-        private System.Windows.Forms.TextBox txtBoxNR;
         private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.ComboBox cmbNR;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

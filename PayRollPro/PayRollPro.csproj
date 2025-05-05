@@ -60,10 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chef.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="Manager.cs" />
     <Compile Include="ManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,7 +71,6 @@
     <Compile Include="Payroll.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Waiter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

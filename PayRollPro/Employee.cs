@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PayRollPro
 {
-    public abstract class Employee
+    public class Employee
     {
         public string Name { get; set; }
         public int EmployeeId;
@@ -14,19 +14,23 @@ namespace PayRollPro
         public double HoursWorked { get; private set; }
         public double Tips { get; private set; }
 
-        public Employee(string name, double hourlyRate)
+        public string Role { get; set; }
+
+        public Employee(string name, double hourlyRate, string role)
         {
             Name = name;
             HourlyRate = hourlyRate;
+            Role = role;
             HoursWorked = 0;
             Tips = 0;
         }
 
-        public Employee(int id, string name, double hourlyRate)
+        public Employee(int id, string name, double hourlyRate, string role)
         {
             Name = name;
             EmployeeId = id;
             HourlyRate = hourlyRate;
+            Role = role;
             HoursWorked = 0;
             Tips = 0;
         }
@@ -44,11 +48,16 @@ namespace PayRollPro
             Tips += tips;
         }
 
-        public abstract double CalculatePay();
+        public double CalculatePay()
+        {
+            return HourlyRate * HoursWorked + Tips;
+        }
 
         public virtual void DisplayInfo()
         {
             Console.WriteLine($"Name: {Name}, Hourly Rate: {HourlyRate:C}, Hours Worked: {HoursWorked}, Tips: {Tips:C}");
+            double total = CalculatePay();
+            Console.WriteLine($"Role: {Role}, Total Weekly Pay: ${total}.\n");
         }
     }
 }

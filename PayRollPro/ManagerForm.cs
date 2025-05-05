@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PayRollPro
 {
@@ -20,6 +21,7 @@ namespace PayRollPro
 
             List<string> roles = new List<string> { "Waiter/Waitress", "Chef", "Manager" };
             cmbRole.DataSource = roles;
+            cmbNR.DataSource = new List<string>(roles);
 
             payroll = new Payroll();
             var records = DatabaseHelper.LoadAllEmployees();
@@ -27,12 +29,7 @@ namespace PayRollPro
             {
                 Employee emp = null;
 
-                if (role == "Manager")
-                    emp = new Manager(id, name, rate);
-                else if (role == "Chef")
-                    emp = new Chef(id, name, rate);
-                else if (role == "Waiter/Waitress")
-                    emp = new Waiter(id, name, rate);
+                emp = new Employee(id, name, rate, role);
 
                 if (emp != null)
                 {
@@ -50,22 +47,12 @@ namespace PayRollPro
             string name = textBoxName.Text;
             double rate = (double)numUpDownRate.Value;
 
-            if (selectedRole == "Manager")
-            {
-                newEmployee = new Manager(name, rate);
-            }
-            else if (selectedRole == "Chef")
-            {
-                newEmployee = new Chef(name, rate);
-            }
-            else if (selectedRole == "Waiter/Waitress")
-            {
-                newEmployee = new Waiter(name, rate);
-            }
+
+            newEmployee = new Employee(name, rate, selectedRole);
             
-            DatabaseHelper.AddEmployeeToDatabase(newEmployee, selectedRole);
+            DatabaseHelper.AddEmployeeToDatabase(newEmployee);
             payroll.AddEmployee(newEmployee);
-            MessageBox.Show($"{selectedRole} added successfully!");
+            MessageBox.Show($"{selectedRole} with employee ID: {newEmployee.EmployeeId} added successfully!");
 
             listBoxEmployees.Items.Add(name);
             textBoxName.Text = "";
@@ -122,23 +109,25 @@ namespace PayRollPro
                 return;
             }
 
+
+            txtBoxNN.Text = listBoxEmployees.SelectedItem.ToString();
             labelNewN.Visible = true;
             labelNewR.Visible = true;
             btnDone.Visible = true;
             txtBoxNN.Visible = true;
-            txtBoxNR.Visible = true;
+            cmbNR.Visible = true;
         }
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBoxNN.Text) || string.IsNullOrEmpty(txtBoxNR.Text))
+            if (string.IsNullOrEmpty(txtBoxNN.Text))
             {
                 MessageBox.Show("Please fill in both fields", "Error!");
                 return;
             }
 
             string updatedName = txtBoxNN.Text;
-            string updatedRole = txtBoxNR.Text;
+            string updatedRole = cmbNR.SelectedItem?.ToString();
 
 
             string selectedEmployee = listBoxEmployees.SelectedItem.ToString();
@@ -148,12 +137,12 @@ namespace PayRollPro
             {
                 // Update the employee's details
                 emp.Name = updatedName;
-
+                emp.Role = updatedRole;
                 // Optionally: Update the list box item (if you want to reflect the name change)
                 listBoxEmployees.Items[listBoxEmployees.SelectedIndex] = updatedName;
 
                 // Update the database with the new information
-                DatabaseHelper.UpdateEmployeeInDatabase(emp, updatedRole);
+                DatabaseHelper.UpdateEmployeeInDatabase(emp);
 
                 MessageBox.Show("Employee information updated successfully!");
             }
@@ -162,8 +151,29 @@ namespace PayRollPro
             labelNewR.Visible = false;
             btnDone.Visible = false;
             txtBoxNN.Visible = false;
-            txtBoxNR.Visible = false;
+            cmbNR.Visible = false;
 
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (listBoxEmployees.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please Select an Employee", "Error!");
+                return;
+            }
+
+            string selectedEmployee = listBoxEmployees.SelectedItem.ToString();
+            Employee emp = payroll.GetEmployee(selectedEmployee);
+
+            if (emp != null)
+            {
+                // Optionally: Update the list box item (if you want to reflect the name change)
+                listBoxEmployees.Items.Remove(listBoxEmployees.SelectedItem);
+
+                // Update the database with the new information
+                DatabaseHelper.RemoveEmployeeFromDatabase(emp);
+            }
         }
     }
 }
