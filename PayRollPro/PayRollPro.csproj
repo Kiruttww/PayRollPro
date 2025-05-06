@@ -62,6 +62,12 @@
   <ItemGroup>
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="FirstContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstContact.Designer.cs">
+      <DependentUpon>FirstContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,13 +77,25 @@
     <Compile Include="Payroll.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FirstContact.resx">
+      <DependentUpon>FirstContact.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +106,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>PayrollDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\PayRoll Pro.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
