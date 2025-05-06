@@ -113,6 +113,8 @@ namespace PayRollPro
             txtBoxNN.Text = listBoxEmployees.SelectedItem.ToString();
             labelNewN.Visible = true;
             labelNewR.Visible = true;
+            labelNRa.Visible = true;
+            numUpDownNRa.Visible = true;
             btnDone.Visible = true;
             txtBoxNN.Visible = true;
             cmbNR.Visible = true;
@@ -128,7 +130,7 @@ namespace PayRollPro
 
             string updatedName = txtBoxNN.Text;
             string updatedRole = cmbNR.SelectedItem?.ToString();
-
+            double updatedRate= (double)numUpDownNRa.Value;
 
             string selectedEmployee = listBoxEmployees.SelectedItem.ToString();
             Employee emp = payroll.GetEmployee(selectedEmployee);
@@ -138,7 +140,8 @@ namespace PayRollPro
                 // Update the employee's details
                 emp.Name = updatedName;
                 emp.Role = updatedRole;
-                // Optionally: Update the list box item (if you want to reflect the name change)
+                if (updatedRate > 0)
+                    emp.HourlyRate = updatedRate;
                 listBoxEmployees.Items[listBoxEmployees.SelectedIndex] = updatedName;
 
                 // Update the database with the new information
@@ -149,6 +152,8 @@ namespace PayRollPro
 
             labelNewN.Visible = false;
             labelNewR.Visible = false;
+            labelNRa.Visible = false;
+            numUpDownNRa.Visible = false;
             btnDone.Visible = false;
             txtBoxNN.Visible = false;
             cmbNR.Visible = false;

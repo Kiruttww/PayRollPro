@@ -48,7 +48,10 @@
             this.btnDone = new System.Windows.Forms.Button();
             this.cmbNR = new System.Windows.Forms.ComboBox();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.numUpDownNRa = new System.Windows.Forms.NumericUpDown();
+            this.labelNRa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownNRa)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxEmployees
@@ -207,7 +210,7 @@
             // 
             // txtBoxNN
             // 
-            this.txtBoxNN.Location = new System.Drawing.Point(862, 478);
+            this.txtBoxNN.Location = new System.Drawing.Point(831, 479);
             this.txtBoxNN.Name = "txtBoxNN";
             this.txtBoxNN.Size = new System.Drawing.Size(176, 26);
             this.txtBoxNN.TabIndex = 20;
@@ -235,7 +238,7 @@
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(831, 574);
+            this.btnDone.Location = new System.Drawing.Point(1101, 552);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(86, 37);
             this.btnDone.TabIndex = 24;
@@ -248,7 +251,7 @@
             // 
             this.cmbNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNR.FormattingEnabled = true;
-            this.cmbNR.Location = new System.Drawing.Point(862, 518);
+            this.cmbNR.Location = new System.Drawing.Point(831, 517);
             this.cmbNR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbNR.Name = "cmbNR";
             this.cmbNR.Size = new System.Drawing.Size(176, 28);
@@ -267,11 +270,34 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // numUpDownNRa
+            // 
+            this.numUpDownNRa.DecimalPlaces = 2;
+            this.numUpDownNRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numUpDownNRa.Location = new System.Drawing.Point(831, 563);
+            this.numUpDownNRa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numUpDownNRa.Name = "numUpDownNRa";
+            this.numUpDownNRa.Size = new System.Drawing.Size(176, 26);
+            this.numUpDownNRa.TabIndex = 28;
+            this.numUpDownNRa.Visible = false;
+            // 
+            // labelNRa
+            // 
+            this.labelNRa.AutoSize = true;
+            this.labelNRa.Location = new System.Drawing.Point(729, 569);
+            this.labelNRa.Name = "labelNRa";
+            this.labelNRa.Size = new System.Drawing.Size(79, 20);
+            this.labelNRa.TabIndex = 29;
+            this.labelNRa.Text = "New Rate";
+            this.labelNRa.Visible = false;
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.labelNRa);
+            this.Controls.Add(this.numUpDownNRa);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.cmbNR);
             this.Controls.Add(this.btnDone);
@@ -296,6 +322,7 @@
             this.Name = "ManagerForm";
             this.Text = "Manager Page";
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownNRa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,5 +350,7 @@
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.ComboBox cmbNR;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.NumericUpDown numUpDownNRa;
+        private System.Windows.Forms.Label labelNRa;
     }
 }

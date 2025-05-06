@@ -122,12 +122,13 @@ namespace PayRollPro
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Employees SET Name = @name, Role = @role WHERE ID = @id";
+                string query = "UPDATE Employees SET Name = @name, Role = @role, HourlyRate = @rate WHERE ID = @id";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@id", emp.EmployeeId);
                 cmd.Parameters.AddWithValue("@name", emp.Name);
                 cmd.Parameters.AddWithValue("@role", emp.Role);
+                cmd.Parameters.AddWithValue("@rate", emp.HourlyRate);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
